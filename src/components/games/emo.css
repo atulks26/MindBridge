@@ -1,0 +1,29 @@
+.body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .title {
+    color: #333;
+  }
+  
+  .prompt {
+    margin: 10px 0;
+  }
+  
+  .input {
+    padding: 5px;
+    margin-right: 5px;
+  }
+  
+  .button {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .result {
+    font-weight: bold;
+    color: #d9534f;
+  }
+  

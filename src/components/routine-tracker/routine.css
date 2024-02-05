@@ -1,0 +1,45 @@
+/* Add your styles here */
+.app {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .habit-form {
+    margin: 20px 0;
+  }
+  
+  .habit-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .habit-form button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .habit-list {
+    margin: 20px 0;
+  }
+  
+  .habit-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .habit-list li {
+    margin: 8px 0;
+  }
+  
