@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Home from "./components/home/home";
 import Signup from "./components/auth/signup";
 import Login from "./components/auth/login";
 import Profilecreation from "./components/profile/profile-creation";
 import Profilepage from "./components/profile/profile";
 import Gamepage from "./components/games/main";
 import Routine from "./components/routine-tracker/routine";
+import Nav from "./components/navbar/nav";
 // import Blockchain from "./components/storage/main";
 
 //games
@@ -16,8 +18,10 @@ function App() {
     return (
         <div className="App">
             <Router>
+                <Nav />
                 <Routes>
                     {/* <Route path="/" element={[<Home />]}></Route> */}
+                    <Route path="/" element={[<Home />]} />
                     <Route path="/signup" element={[<Signup />]} />
                     <Route path="/login" element={[<Login />]} />
                     <Route

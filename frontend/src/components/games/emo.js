@@ -14,35 +14,33 @@ const EmotionGuessingGame = () => {
     const [prompts, setPrompts] = useState([]);
     const [guess, setGuess] = useState("");
     const [result, setResult] = useState("");
+    const [correctEmotion, setCorrectEmotion] = useState("");
+    const [selectedEmotions, setSelectedEmotions] = useState([]);
 
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    function isPresent(min, max, nums) {
-        const randomIdx = getRandomInt(0, emotions.length - 1);
-        if (nums.includes(randomIdx)) {
-            isPresent(min, max, nums);
-        } else {
-            nums.push(randomIdx);
-            return randomIdx;
-        }
-    }
-
-    const startGame = () => {
+    function startGame() {
         const nums = [];
         const numberOfPrompts = getRandomInt(3, 6);
-        const selectedEmotions = [];
-        const allEmotions = emotions;
+        // const selectedEmotions = [];
 
-        for (let i = 0; i < numberOfPrompts; i++) {
-            const randomIndex = isPresent(0, allEmotions.length - 1, nums);
+        while (selectedEmotions.length < numberOfPrompts) {
+            const randomIndex = getRandomInt(0, emotions.length - 1);
 
-            selectedEmotions.push(allEmotions[randomIndex]);
+            if (!nums.includes(randomIndex)) {
+                nums.push(randomIndex);
+                selectedEmotions.push(emotions[randomIndex]);
+            }
         }
 
+        setSelectedEmotions(selectedEmotions);
+
+        const randomCorrectIndex = getRandomInt(0, selectedEmotions.length - 1);
+        setCorrectEmotion(selectedEmotions[randomCorrectIndex]);
         setPrompts(selectedEmotions);
-    };
+    }
 
     useEffect(() => {
         startGame();
@@ -53,22 +51,11 @@ const EmotionGuessingGame = () => {
     };
 
     const checkGuess = () => {
-        const guessedEmotions = guess
-            .split(",")
-            .map((emotion) => emotion.trim());
-        const correctEmotions = [
-            "Happy",
-            "Sad",
-            "Angry",
-            "Surprised",
-            "Fearful",
-            "Disgusted",
-        ];
-        const correct = guessedEmotions.every((guess) =>
-            correctEmotions.includes(guess)
-        );
-
-        setResult(correct ? "Correct! Well done!" : "Incorrect. Try again.");
+        if (guess.toLowerCase === correctEmotion.toLowerCase) {
+            setResult("Correct! Well done!");
+        } else {
+            setResult("Incorrect. Try again.");
+        }
     };
 
     return (

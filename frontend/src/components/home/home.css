@@ -1,0 +1,52 @@
+* {
+    overflow-x: hidden;
+}
+
+:root {
+    --text: #18091a;
+    --background: #fbf5fc;
+    --primary: #b144be;
+    --secondary: #de9fa0;
+    --accent: #d19d7a;
+}
+
+.home {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.home-desc-img {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+}
+
+.home-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.home-desc-1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    margin: 0;
+}
+.home-desc-2 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.home-description p {
+    text-align: center;
+}
+
+.home-main-image {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}

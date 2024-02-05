@@ -1,0 +1,44 @@
+* {
+    background-color: transparent;
+}
+
+.nav {
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    margin: auto;
+    max-width: 80%;
+    height: 8vh;
+    background-color: ;
+}
+
+.nav-logo {
+    height: 100%;
+    align-self: flex-start;
+    width: 10%;
+}
+
+.nav-buttons button {
+    border: none;
+    background-color: transparent;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.nav-buttons button:hover {
+    cursor: pointer;
+}
+
+.nav-buttons {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-signout {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+}
