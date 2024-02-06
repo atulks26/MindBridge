@@ -1,6 +1,12 @@
-/* App.css */
+:root {
+    --text: #1a110d;
+    --background: #fcfaf9;
+    --primary: #ae7563;
+    --secondary: #d1d0a7;
+    --accent: #b8c086;
+}
 * {
-    color: white;
+    color: var(--text);
 }
 
 .habit-tracker {
@@ -8,6 +14,7 @@
     height: 100vh;
     margin: auto;
     font-family: Arial, sans-serif;
+    background-color: var(--background);
 }
 
 .habit-tracker h1 {
@@ -70,6 +77,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: 2px solid black;
 }
 
 .habit-list {

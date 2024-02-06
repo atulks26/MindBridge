@@ -1,22 +1,37 @@
+:root {
+    --text: #1a110d;
+    --background: #fcfaf9;
+    --primary: #ae7563;
+    --secondary: #d1d0a7;
+    --accent: #b8c086;
+}
+
+.faq h1 {
+    color: var(--text);
+}
+
 .faq {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
+    background-color: var(--background);
+    color: var(--text);
 }
 
 .faq-holder {
     width: 90%;
     padding: 1rem;
-    background-color: rgb(255, 255, 255, 0.2);
+    background-color: rgba(207, 202, 202, 0.648);
 }
 
 .faq-holder p {
     font-size: 1.2rem;
     margin-top: 2rem;
-    color: rgb(220, 51, 220);
+    color: var(--text);
 }
 .faq-holder span {
     font-size: 0.8rem;
+    color: var(--text);
 }

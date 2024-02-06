@@ -3,11 +3,11 @@
 }
 
 :root {
-    --text: #f4e4f6;
-    --background: #0a040b;
-    --primary: #ad41b9;
-    --secondary: #5e2122;
-    --accent: #85512e;
+    --text: #1a110d;
+    --background: #fcfaf9;
+    --primary: #ae7563;
+    --secondary: #d1d0a7;
+    --accent: #b8c086;
 }
 
 .home {
@@ -26,6 +26,7 @@
     min-height: 100vh;
     margin: 2rem 0;
     overflow: hidden;
+    color: var(--text);
 }
 
 .home-description {
@@ -40,11 +41,13 @@
     font-size: 5rem;
     font-weight: 800;
     margin: 0;
+    color: var(--text);
 }
 .home-desc-2 {
     font-size: 1rem;
     margin: 0;
     font-style: italic;
+    color: var(--text);
 }
 
 .home-description p {
@@ -58,6 +61,7 @@
 }
 .home-main-image img {
     object-fit: contain;
+    filter: invert();
 }
 
 .home-cards {
@@ -72,7 +76,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #dea1a2;
+    background-color: var(--accent);
     width: 12rem;
     height: 16rem;
     margin: 1rem;
@@ -92,9 +96,10 @@
     height: 40%;
     text-align: center;
     margin: 0;
+    color: var(--text);
 }
 
 .feature-card:hover {
     transform: translateY(-10%);
-    box-shadow: 0 0 16px 6px white;
+    box-shadow: 0 0 16px 6px rgb(0, 0, 0, 0.5);
 }

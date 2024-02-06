@@ -13,6 +13,12 @@ function Home() {
         window.location.href = "/games/colormaze";
     };
 
+    const redirectRoutine = async (e) => {
+        e.preventDefault();
+
+        window.location.href = "/routine";
+    };
+
     return (
         <div className="home">
             <div className="home-desc-img">
@@ -40,7 +46,7 @@ function Home() {
                     <img src={Journal} />
                     <p>Progress Tracker</p>
                 </div>
-                <div className="feature-card">
+                <div className="feature-card" onClick={redirectRoutine}>
                     <img src={Cap} />
                     <p>Routine Tracker</p>
                 </div>

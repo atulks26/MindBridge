@@ -1,15 +1,25 @@
+:root {
+    --text: #1a110d;
+    --background: #fcfaf9;
+    --primary: #ae7563;
+    --secondary: #d1d0a7;
+    --accent: #b8c086;
+}
+
 .colormaze {
+    color: var(--text);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    color: white;
+    background-color: var(--background);
 }
 
 .sequence-display {
     font-size: 24px;
     margin-bottom: 20px;
+    color: var(--text);
 }
 
 .square {
@@ -32,7 +42,7 @@
 button {
     border: none;
     background-color: transparent;
-    color: white;
+    color: var(--text);
     font-weight: 600;
     font-size: 1.5rem;
     margin: 1rem;
@@ -50,7 +60,7 @@ button {
         rgba(185, 85, 14, 1) 86%,
         rgba(203, 14, 14, 1) 100%
     );
-    border: 1px solid white;
+    border: 1px solid black;
     padding: 1.5rem 2rem;
 }
 
@@ -66,7 +76,7 @@ button {
     justify-content: center;
     align-items: center;
     width: fill;
-    border: 2px white solid;
+    border: 2px black solid;
 }
 
 #redBtn {
@@ -95,7 +105,7 @@ button {
 }
 
 #start {
-    background-color: white;
+    background-color: rgb(217, 211, 211);
     color: black;
     padding: 0.7rem 2rem;
 }
