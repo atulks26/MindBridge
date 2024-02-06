@@ -4,19 +4,12 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    color: white;
 }
 
 .sequence-display {
     font-size: 24px;
     margin-bottom: 20px;
-}
-
-.maze {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 10px;
-    border: 1px solid black;
 }
 
 .square {
@@ -30,13 +23,79 @@
     margin-top: 20px;
 }
 
+.colormaze-btn {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
 button {
-    padding: 1rem 3rem;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.playBtn {
+    background: rgb(113, 5, 92);
+    background: linear-gradient(
+        30deg,
+        rgba(113, 5, 92, 1) 0%,
+        rgba(138, 28, 228, 1) 16%,
+        rgba(8, 93, 123, 1) 34%,
+        rgba(9, 127, 32, 1) 51%,
+        rgba(158, 164, 13, 1) 69%,
+        rgba(185, 85, 14, 1) 86%,
+        rgba(203, 14, 14, 1) 100%
+    );
+    border: 1px solid white;
+    padding: 1.5rem 2rem;
 }
 
 .buttons-container {
     display: flex;
     width: 100%;
-    margin: 100px;
+    height: 30vh;
     justify-content: space-evenly;
+}
+
+.buttons-container button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fill;
+    border: 2px white solid;
+}
+
+#redBtn {
+    background-color: red;
+    color: red;
+}
+#blueBtn {
+    background-color: blue;
+    color: blue;
+}
+#greenBtn {
+    background-color: green;
+    color: green;
+}
+#purpleBtn {
+    background-color: purple;
+    color: purple;
+}
+#yellowBtn {
+    background-color: yellow;
+    color: yellow;
+}
+#orangeBtn {
+    background-color: orange;
+    color: orange;
+}
+
+#start {
+    background-color: white;
+    color: black;
+    padding: 0.7rem 2rem;
 }

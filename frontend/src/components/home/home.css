@@ -3,24 +3,29 @@
 }
 
 :root {
-    --text: #18091a;
-    --background: #fbf5fc;
-    --primary: #b144be;
-    --secondary: #de9fa0;
-    --accent: #d19d7a;
+    --text: #f4e4f6;
+    --background: #0a040b;
+    --primary: #ad41b9;
+    --secondary: #5e2122;
+    --accent: #85512e;
 }
 
 .home {
     display: flex;
+    flex-direction: column;
     width: 100vw;
-    height: 100vh;
+
+    color: var(--text);
+    background-color: var(--background);
 }
 
 .home-desc-img {
     display: flex;
     justify-content: center;
-    width: 100%;
-    margin: auto;
+    width: 100vw;
+    min-height: 100vh;
+    margin: 2rem 0;
+    overflow: hidden;
 }
 
 .home-description {
@@ -39,6 +44,7 @@
 .home-desc-2 {
     font-size: 1rem;
     margin: 0;
+    font-style: italic;
 }
 
 .home-description p {
@@ -49,4 +55,46 @@
     display: flex;
     justify-content: center;
     width: 40%;
+}
+.home-main-image img {
+    object-fit: contain;
+}
+
+.home-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 0;
+}
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #dea1a2;
+    width: 12rem;
+    height: 16rem;
+    margin: 1rem;
+    border: 1px white solid;
+    transition: 0.3s ease-in-out;
+    font-size: 1.4rem;
+    border-radius: 4px;
+}
+
+.feature-card img {
+    height: 60%;
+    scale: 0.6;
+}
+
+.feature-card p {
+    width: 100%;
+    height: 40%;
+    text-align: center;
+    margin: 0;
+}
+
+.feature-card:hover {
+    transform: translateY(-10%);
+    box-shadow: 0 0 16px 6px white;
 }

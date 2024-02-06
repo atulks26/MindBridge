@@ -6,37 +6,46 @@ import Login from "./components/auth/login";
 import Profilecreation from "./components/profile/profile-creation";
 import Profilepage from "./components/profile/profile";
 import Gamepage from "./components/games/main";
-import Routine from "./components/routine-tracker/routine";
 import Nav from "./components/navbar/nav";
+import Landing from "./components/landing/landing";
+import RoutineTracker from "./components/routine-tracker/routine";
+import Scan from "./components/live-scan";
 // import Blockchain from "./components/storage/main";
 
 //games
 import Colormaze from "./components/games/color";
 import EmotionGuessingGame from "./components/games/emo";
 
+import { auth } from "./components/firebase/firebase";
+
 function App() {
+    // if(!auth.currentUser) {
+    //     if()
+    // }
+
     return (
         <div className="App">
             <Router>
                 <Nav />
                 <Routes>
                     {/* <Route path="/" element={[<Home />]}></Route> */}
-                    <Route path="/" element={[<Home />]} />
+                    <Route path="/" element={[<Landing />]} />
+                    <Route path="/home" element={[<Home />]} />
                     <Route path="/signup" element={[<Signup />]} />
                     <Route path="/login" element={[<Login />]} />
                     <Route
                         path="/create-profile"
                         element={[<Profilecreation />]}
                     />
-                    <Route path="/routine" element={[<Routine />]} />
+                    <Route path="/routine" element={[<RoutineTracker />]} />
                     <Route path="/profile" element={[<Profilepage />]} />
                     <Route path="/games" element={[<Gamepage />]} />
-                    <Route path="/games/colormaze" element={[<Colormaze />]} />
-
+                    <Route path="/games/colormaze" element={[<Colormaze />]} />"
                     <Route
                         path="/games/emoquest"
                         element={[<EmotionGuessingGame />]}
                     />
+                    <Route path="/scan" element={[<Scan />]} />
                     {/* <Route path="/data" element={[<Blockchain />]} /> */}
                 </Routes>
             </Router>

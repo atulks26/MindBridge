@@ -1,11 +1,30 @@
-from flask import Flask, jsonify
-app = Flask(_name_)
+# app.py
+from flask import Flask, request, jsonify
+# from ml_model import preprocess_inputs, train_and_evaluate_model
 
-@app.route('/api/data', methods = ['GET'])
-def get_data():
-    data = {
-        "message": "Hello this is api end point"
-    }
-    return jsonify(data)
-if _name_ == '_main_':
-    app.run(host = '0.0.0.0', debug=True)
+app = Flask(__name__)
+
+@app.route('/predict_emotion', methods=['POST'])
+def predict_emotion():
+    try:
+        # Get data from the frontend
+        data = request.get_json()
+
+        # Preprocess inputs
+        X = preprocess_inputs(pd.DataFrame(data))
+
+        # Train and evaluate model
+        model, history, y_test, y_pred, cm, clr = train_and_evaluate_model(X, data['label'])
+
+        # Return results
+        return jsonify({
+            'model_summary': model.summary(),
+            'history': history.history,
+            'confusion_matrix': cm.tolist(),
+            'classification_report': clr
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)})
+
+if __name__ == '__main__':
+    app.run(debug=True)

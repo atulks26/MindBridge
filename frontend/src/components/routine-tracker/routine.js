@@ -1,60 +1,111 @@
-// src/App.js
 import React, { useState, useEffect } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { firestore, auth } from "../firebase/firebase"; // Update the path to your Firebase configuration
+import {
+    collection,
+    addDoc,
+    getDocs,
+    query,
+    where,
+    orderBy,
+} from "firebase/firestore";
 import "./routine.css";
 
-const App = () => {
-  const [habits, setHabits] = useState([]);
-  const [newHabit, setNewHabit] = useState("");
-  const [selectedDate, setSelectedDate] = useState(new Date());
+const RoutineTracker = () => {
+    const [habits, setHabits] = useState([]);
+    const [newHabit, setNewHabit] = useState("");
+    const [selectedDate, setSelectedDate] = useState(
+        new Date().toISOString().split("T")[0]
+    );
 
-  useEffect(() => {
-    const savedHabits = JSON.parse(localStorage.getItem("habits")) || [];
-    setHabits(savedHabits);
-  }, []);
+    useEffect(() => {
+        const fetchHabits = async () => {
+            if (auth.currentUser) {
+                try {
+                    const habitsCollection = collection(
+                        firestore,
+                        "user-habits"
+                    );
+                    const habitsQuery = query(
+                        habitsCollection,
+                        where("userId", "==", auth.currentUser.uid),
+                        orderBy("date", "desc")
+                    );
+                    const habitsSnapshot = await getDocs(habitsQuery);
 
-  const handleAddHabit = () => {
-    if (newHabit.trim() === "") {
-      return;
-    }
+                    const habitsData = habitsSnapshot.docs.map((doc) => ({
+                        id: doc.id,
+                        ...doc.data(),
+                    }));
 
-    const updatedHabits = [...habits, { habit: newHabit, date: selectedDate }];
-    setHabits(updatedHabits);
-    localStorage.setItem("habits", JSON.stringify(updatedHabits));
+                    setHabits(habitsData);
+                } catch (error) {
+                    console.error("Error fetching habits:", error);
+                }
+            }
+        };
 
-    setNewHabit("");
-  };
+        fetchHabits();
+    }, [firestore, auth]);
 
-  return (
-    <div className="app">
-      <h1>Habit Tracker</h1>
-      <div className="habit-form">
-        <input
-          type="text"
-          placeholder="Add a new habit..."
-          value={newHabit}
-          onChange={(e) => setNewHabit(e.target.value)}
-        />
-        <DatePicker
-          selected={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
-          dateFormat="MM/dd/yyyy"
-        />
-        <button onClick={handleAddHabit}>Add Habit</button>
-      </div>
-      <div className="habit-list">
-        <h2>Your Habits</h2>
-        <ul>
-          {habits.map((habit, index) => (
-            <li key={index}>
-              {habit.habit} - {new Date(habit.date).toDateString()}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
+    const handleAddHabit = async () => {
+        if (newHabit.trim() === "") {
+            return;
+        }
+
+        try {
+            const habitsCollection = collection(firestore, "user-habits");
+            const newHabitDoc = await addDoc(habitsCollection, {
+                userId: auth.currentUser.uid,
+                habit: newHabit,
+                date: selectedDate,
+            });
+
+            setHabits([
+                {
+                    id: newHabitDoc.id,
+                    userId: auth.currentUser.uid,
+                    habit: newHabit,
+                    date: selectedDate,
+                },
+                ...habits,
+            ]);
+
+            setNewHabit("");
+        } catch (error) {
+            console.error("Error adding habit:", error);
+        }
+    };
+
+    return (
+        <div className="habit-tracker">
+            <div className="routine-holder">
+                <h1>Habit Tracker</h1>
+                <div className="habit-form">
+                    <input
+                        type="text"
+                        placeholder="Add a new habit..."
+                        value={newHabit}
+                        onChange={(e) => setNewHabit(e.target.value)}
+                    />
+                    <input
+                        type="date"
+                        value={selectedDate}
+                        onChange={(e) => setSelectedDate(e.target.value)}
+                    />
+                    <button onClick={handleAddHabit}>Add Habit</button>
+                </div>
+                <div className="habit-list">
+                    <h2>Your Habits</h2>
+                    {habits.map((habit, index) => (
+                        <div key={index} className="habit-item">
+                            <p>{habit.habit}</p>
+                            <p>{new Date(habit.date).toDateString()}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
 };
 
-export default App;
+export default RoutineTracker;

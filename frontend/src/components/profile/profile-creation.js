@@ -1,11 +1,12 @@
 import React, { useRef, useState } from "react";
 import { firestore, auth } from "../firebase/firebase";
 import { doc, getDoc, setDoc } from "@firebase/firestore";
+import "./profile-creation.css";
 
 function Profilecreation() {
     const nameRef = useRef();
     const ageRef = useRef();
-    const dobRef = useRef();
+    // const dobRef = useRef();
     const contactRef = useRef();
 
     const handleSubmit = async (e) => {
@@ -17,7 +18,7 @@ function Profilecreation() {
             let newData = {
                 name: nameRef.current.value,
                 age: ageRef.current.value,
-                dob: dobRef.current.value,
+                // dob: dobRef.current.value,
                 contact: contactRef.current.value,
                 colormazeLevel: 1,
                 emoquestLevel: 1,
@@ -35,7 +36,7 @@ function Profilecreation() {
 
                     console.log("User details saved");
 
-                    window.location.href = "/";
+                    window.location.href = "/home";
                 } else {
                     console.log("Document doesn't exist");
                 }
@@ -57,8 +58,6 @@ function Profilecreation() {
                     type="text"
                     required
                     placeholder="Full name"
-                    // value={name}
-                    // onChange={(e) => setName(e.target.value)}
                     ref={nameRef}
                 ></input>
 
@@ -75,15 +74,13 @@ function Profilecreation() {
                 ></input>
 
                 {/*DOB*/}
-                <label htmlFor="dob">Date Of Birth</label>
+                {/* <label htmlFor="dob">Date Of Birth</label>
                 <input
                     id="dob"
                     type="date"
                     required
-                    // value={dob}
-                    // onChange={(e) => setDob(e.target.value)}
                     ref={dobRef}
-                ></input>
+                ></input> */}
 
                 {/*Contact*/}
                 <label htmlFor="contact">Emergency Contact</label>
@@ -101,6 +98,9 @@ function Profilecreation() {
 
                 {/*Submit*/}
                 <button type="submit">Update Profile!</button>
+                <a href="http://localhost:5500/frontend/src/components/metamask/index.html">
+                    Connect Metamask
+                </a>
             </form>
         </div>
     );

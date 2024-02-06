@@ -1,0 +1,12 @@
+.faq {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.faq-holder {
+    width: 90%;
+    padding: 1rem;
+}
+
+

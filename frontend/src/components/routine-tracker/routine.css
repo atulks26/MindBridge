@@ -1,45 +1,81 @@
-/* Add your styles here */
-.app {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
+/* App.css */
+* {
+    color: white;
+}
+
+.habit-tracker {
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+.habit-tracker h1 {
     text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
-  
-  .habit-form {
-    margin: 20px 0;
-  }
-  
-  .habit-form input {
+    color: #333;
+}
+
+.habit-tracker div {
+    margin-bottom: 10px;
+}
+
+.habit-tracker input {
+    padding: 8px;
+    width: 30%;
+}
+
+.habit-tracker button {
+    padding: 8px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.habit-tracker ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.habit-tracker li {
+    border: 1px solid #ddd;
     padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .habit-form button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #4caf50;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.habit-tracker li span {
+    flex: 1;
+}
+
+.habit-tracker button {
+    background-color: #f44336;
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 8px;
     cursor: pointer;
-    margin-left: 10px;
-  }
-  
-  .habit-list {
-    margin: 20px 0;
-  }
-  
-  .habit-list ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .habit-list li {
-    margin: 8px 0;
-  }
-  
+}
+
+.habit-tracker button:hover {
+    background-color: #d32f2f;
+}
+
+/* Optional: Add a transition effect */
+.habit-tracker button {
+    transition: background-color 0.3s ease;
+}
+
+.habit-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.habit-list {
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

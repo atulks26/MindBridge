@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase";
+import "./login.css";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ function Login() {
             .then((userCredential) => {
                 console.log(userCredential);
                 console.log("LoggedIn");
-                window.location.href = "/";
+                window.location.href = "/home";
             })
             .catch((error) => {
                 console.error(error);

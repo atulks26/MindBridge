@@ -5,6 +5,7 @@ import {
 } from "firebase/auth";
 import { auth, firestore } from "../firebase/firebase";
 import { doc, setDoc } from "@firebase/firestore";
+import "./signup.css";
 
 function Signup() {
     const [email, setEmail] = useState("");

@@ -1,0 +1,52 @@
+/* * {
+    overflow: hidden;
+} */
+
+.landing {
+    position: absolute;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+}
+.landing img {
+    position: absolute;
+    z-index: 101;
+    width: 100%;
+    height: 100%;
+}
+
+.landing-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    font-weight: 700;
+    color: white;
+}
+
+.landing-text p {
+    width: 100%;
+    height: max-content;
+    text-align: center;
+    margin: 0;
+}
+
+.landing button {
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: "Montserrat", sans-serif;
+    margin: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.landing-content {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    z-index: 102;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}

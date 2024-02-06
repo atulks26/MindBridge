@@ -11,6 +11,7 @@ function Colormaze() {
     let inGame = false;
     const [loading, setLoading] = useState(false);
 
+    const levelDisplay = document.getElementById("game-level");
     const sequenceDisplay = document.getElementById("sequence-display");
     const maze = document.getElementById("maze");
     const message = document.getElementById("message");
@@ -36,6 +37,10 @@ function Colormaze() {
             } catch (err) {
                 console.log(err);
             }
+        }
+
+        if (levelDisplay) {
+            levelDisplay.textContent = `Level: ${level}`;
         }
 
         sequence = [];
@@ -65,6 +70,10 @@ function Colormaze() {
                 },
                 level <= 5 ? 3000 : 5000
             );
+        }
+
+        if (levelDisplay) {
+            levelDisplay.textContent = `Level: ${level}`;
         }
     }
 
@@ -164,9 +173,12 @@ function Colormaze() {
     return (
         <div className="colormaze">
             <div id="sequence-display" className="sequence-display"></div>
-            <div id="maze" className="maze"></div>
+            <div id="color-display"></div>
             <div id="message" className="message"></div>
-            <button onClick={startGame} disabled={loading}></button>
+            <div id="game-level" className="game-level"></div>
+            <button id="start" onClick={startGame} disabled={loading}>
+                Start
+            </button>
 
             <div className="buttons-container">
                 <button id="redBtn">Red</button>
