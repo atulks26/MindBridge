@@ -1,6 +1,7 @@
 # app.py
 from flask import Flask, request, jsonify
-# from ml_model import preprocess_inputs, train_and_evaluate_model
+from ml_model import preprocess_inputs, train_and_evaluate_model
+
 
 app = Flask(__name__)
 

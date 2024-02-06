@@ -1,9 +1,9 @@
 :root {
-    --text: #f4e4f6;
-    --background: #0a040b;
-    --primary: #ad41b9;
-    --secondary: #5e2122;
-    --accent: #85512e;
+    --text: #1a110d;
+    --background: #fcfaf9;
+    --primary: #ae7563;
+    --secondary: #d1d0a7;
+    --accent: #b8c086;
 }
 
 .nav {
@@ -15,7 +15,7 @@
     align-items: center;
     font-weight: 400;
     height: 8vh;
-    background-color: transparent;
+    background-color: var(--accent);
     color: var(--text);
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -72,7 +72,7 @@
     color: var(--text);
 }
 .nav-signout p {
-    color: white;
+    color: var(--text);
 }
 
 .nav-signout p:hover {

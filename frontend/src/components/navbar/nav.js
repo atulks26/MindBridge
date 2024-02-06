@@ -33,6 +33,11 @@ function Nav() {
         window.location.href = "/home";
     };
 
+    const handleFaq = async (e) => {
+        e.preventDefault();
+        window.location.href = "/faq";
+    };
+
     return (
         <div id="nav" className="nav">
             <div className="nav-holder">
@@ -42,7 +47,7 @@ function Nav() {
                 <div className="nav-buttons">
                     <button>Profile</button>
                     <button>About us</button>
-                    <button>FAQs</button>
+                    <button onClick={handleFaq}>FAQs</button>
                     <button>Scan</button>
                 </div>
                 <div className="nav-signout">

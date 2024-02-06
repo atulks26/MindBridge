@@ -8,8 +8,9 @@ import Profilepage from "./components/profile/profile";
 import Gamepage from "./components/games/main";
 import Nav from "./components/navbar/nav";
 import Landing from "./components/landing/landing";
-import RoutineTracker from "./components/routine-tracker/routine";
 import Scan from "./components/live-scan";
+import Faq from "./components/faq/faq";
+import Routine from "./components/routine-tracker/routine";
 // import Blockchain from "./components/storage/main";
 
 //games
@@ -37,7 +38,6 @@ function App() {
                         path="/create-profile"
                         element={[<Profilecreation />]}
                     />
-                    <Route path="/routine" element={[<RoutineTracker />]} />
                     <Route path="/profile" element={[<Profilepage />]} />
                     <Route path="/games" element={[<Gamepage />]} />
                     <Route path="/games/colormaze" element={[<Colormaze />]} />"
@@ -46,6 +46,8 @@ function App() {
                         element={[<EmotionGuessingGame />]}
                     />
                     <Route path="/scan" element={[<Scan />]} />
+                    <Route path="/faq" element={[<Faq />]} />
+                    <Route path="/routine" element={[<Routine />]} />
                     {/* <Route path="/data" element={[<Blockchain />]} /> */}
                 </Routes>
             </Router>
